@@ -178,12 +178,14 @@ module BlockCypher
 
     def address_details(address, unspent_only: false, limit: 50,
                         before: nil, after: nil, confirmations: nil,
-                        omit_wallet_addresses: false, include_confidence: false)
+                        omit_wallet_addresses: false, include_confidence: false,
+                        include_script: false)
       query = {
         unspentOnly: unspent_only,
         limit: limit,
         omitWalletAddresses: omit_wallet_addresses,
-        includeConfidence: include_confidence
+        includeConfidence: include_confidence,
+        includeScript: include_script
       }
       query[:before] = before if before
       query[:after] = after if after
